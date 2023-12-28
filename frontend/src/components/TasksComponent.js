@@ -2,6 +2,7 @@ import ReactModal from "react-modal";
 import CreateForm from "./CreateForm";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import TaskCard from "./TaskCard";
 
 export default function TaskComponent({id,status}){
 
@@ -27,13 +28,15 @@ export default function TaskComponent({id,status}){
 
     return(
         <div className="border-2">
-            
+
             <div>
+            
             {
                data.map(task=>(
-                <h3>{task.name}</h3>
+                <TaskCard name={task.name} start_date={task.start_date} end_date={task.end_date} status={task.status} />
                ))
             }
+
             </div>
 
             <ReactModal isOpen={visible} className="h-screen">
