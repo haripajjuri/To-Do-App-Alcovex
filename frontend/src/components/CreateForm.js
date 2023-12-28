@@ -2,18 +2,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function CreateForm({changeState,id}){
+export default function CreateForm({changeState,id,status}){
 
     const [send,setData] = useState({
         name:'',
         start_date:'',
         end_date:'',
-        status:'todo'
+        status:`${status}`
     })
 
     const[errors,setErrors] = useState({})
-
-
 
     const postSubmit=async(e)=>{
         e.preventDefault();
@@ -74,7 +72,8 @@ export default function CreateForm({changeState,id}){
 
                     <div className="flex flex-col gap-1">
                         <label htmlFor="status">status</label>
-                        <select name="status" className="h-10 border-2 p-2 rounded " onChange={handleChange}>
+
+                        <select name="status" className="h-10 border-2 p-2 rounded " value={send.status} onChange={handleChange}>
                             <option value="todo">to do</option>
                             <option value="inProgress">in progress</option>
                             <option value="inReview">in review</option>
