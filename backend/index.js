@@ -40,11 +40,22 @@ app.post('/createProject',async(req,res)=>{
     res.json("project created")
 })
 
+app.get('/projectName/:id',async(req,res)=>{
+    const {id} = req.params;
+    try{
+        const [parent] = await conn.query(`select name from projects where id=${id}`);
+        return res.json(parent[0]);
+    }catch(err){
+        res.json(err);
+    }
+})
+
 app.get('/:id',async(req,res)=>{
     const {id} = req.params;
     try{
         const [results] = await conn.query(`select * from tasks WHERE parent='${id}'`)
-        res.json(results);
+        
+    res.json(results);
     }
     catch(err){
         return res.json(err);

@@ -7,6 +7,7 @@ function App() {
   
   return (
     <div className="grid grid-cols-[1fr,4fr]">
+      
       <SideBar/>
       <div>
         <Routes>
