@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactModal from "react-modal";
 import EditForm from './EditForm';
 
-export default function TaskCard({name,status,start_date,end_date}){
+export default function TaskCard({name,status,start_date,end_date,task_id}){
 
     const[visible,setVisible] = useState(false);
 
@@ -17,7 +17,7 @@ export default function TaskCard({name,status,start_date,end_date}){
             </div>
 
             <ReactModal isOpen={visible} className="h-screen">
-                <EditForm changeState={changeState} name={name} start_date={start_date} end_date={end_date} status={status} />
+                <EditForm changeState={changeState} name={name} start_date={start_date} end_date={end_date} status={status} task_id={task_id} />
             </ReactModal>
         </div>
     )

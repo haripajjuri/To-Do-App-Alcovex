@@ -2,12 +2,12 @@ import {  useState } from "react";
 import axios from "axios";
 import moment from 'moment';
 
-export default function CreateForm({changeState,name,start_date,end_date,status}){
+export default function CreateForm({changeState,name,start_date,end_date,status,task_id}){
 
     const [send,setData] = useState({
-        name:'',
-        start_date:'',
-        end_date:'',
+        name:`${name}`,
+        start_date:`${moment(start_date).format('YYYY-MM-DD')}`,
+        end_date:`${moment(end_date).format('YYYY-MM-DD')}`,
         status:`${status}`
     })
 
@@ -16,23 +16,17 @@ export default function CreateForm({changeState,name,start_date,end_date,status}
     const postSubmit=async(e)=>{
         e.preventDefault();
 
-        if(send.end_date===""){
-            setErrors({end_date:'please enter the end date'})
-        }
-        if(send.start_date===""){
-            setErrors({start_date:'please enter start date'})
-        }
         if(send.name===""){
             setErrors({name:'please enter name'});
         }
 
-        // if(send.name!="" && send.end_date!="" && send.start_date !=""){
-        //     axios.post(`http://localhost:3001/${id}/create`,send).then(res=>{
-        //         window.alert(res.data);
-        //         window.location.reload()
-        //         changeState(false);
-        //     })
-        // }
+        if(send.name!=""){
+            axios.put(`http://localhost:3001/${task_id}/update`,send).then(res=>{
+                window.alert(res.data);
+                window.location.reload()
+                changeState(false);
+            })
+        }
    
     }
 
@@ -51,7 +45,7 @@ export default function CreateForm({changeState,name,start_date,end_date,status}
             <form className="flex flex-col bg-white rounded w-1/2 h-2/4 gap-6 p-9" onSubmit={postSubmit} id="createForm">
                     <div className="flex flex-col gap-1">
                         <label htmlFor="name">enter the task name</label>
-                        <input type="text" name="name" placeholder="taskname" value={name} className=" h-10 border-2 p-2 rounded" onChange={handleChange}/>
+                        <input type="text" name="name" placeholder="taskname" value={send.name} className=" h-10 border-2 p-2 rounded" onChange={handleChange}/>
                         {errors.name && <p className="text-red-600 text-sm ml-1 mt-1">{errors.name}</p>}
                     </div>
 
@@ -59,13 +53,13 @@ export default function CreateForm({changeState,name,start_date,end_date,status}
 
                     <div className="flex flex-col gap-1 w-3/5">
                         <label htmlFor="start_date">start date</label>
-                        <input type="date" name="start_date" className="h-10 border-2 p-3 rounded" onChange={handleChange} value={moment(start_date).format('YYYY-MM-DD')}/>
+                        <input type="date" name="start_date" className="h-10 border-2 p-3 rounded" onChange={handleChange} value={send.start_date}/>
                         {errors.start_date && <p className="text-red-600 text-sm ml-1 mt-1">{errors.start_date}</p>}
                     </div>
 
                     <div className="flex flex-col gap-1 w-3/5">
                         <label htmlFor="end_date">end date</label>
-                        <input type="date" name="end_date" className="h-10 border-2 p-3 rounded" onChange={handleChange} value={moment(end_date).format('YYYY-MM-DD')}/>
+                        <input type="date" name="end_date" className="h-10 border-2 p-3 rounded" onChange={handleChange} value={send.end_date}/>
                         {errors.end_date && <p className="text-red-600 text-sm ml-1 mt-1">{errors.end_date}</p>}
                     </div>
                     </div>

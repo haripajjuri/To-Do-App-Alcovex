@@ -28,12 +28,15 @@ export default function TaskComponent({id,status}){
 
     return(
         <div className="border-2">
+            {
+                console.log(data)
+            }
 
             <div>
             
             {
                data.map(task=>(
-                <TaskCard name={task.name} start_date={task.start_date} end_date={task.end_date} status={task.status} />
+                <TaskCard name={task.name} start_date={task.start_date} end_date={task.end_date} status={task.status} task_id={task.id} />
                ))
             }
 

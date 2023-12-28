@@ -73,11 +73,11 @@ app.post('/:id/create',async(req,res)=>{
     }
 })
 
-app.put('/:task_id/update',async(req,res)=>{
-    const {task_id} = req.params;
+app.put('/:id/update',async(req,res)=>{
+    const {id} = req.params;
     const {name,start_date,end_date,status} = req.body;
     try{
-        await conn.query(`update tasks set name='${name}',start_date='${start_date}', end_date='${end_date}', status='${status}' WHERE id=${task_id}`);
+        await conn.query(`update tasks set name='${name}',start_date='${start_date}', end_date='${end_date}', status='${status}' WHERE id=${id}`);
         res.json("task updated");
     }catch(err){
         return res.json(err);
