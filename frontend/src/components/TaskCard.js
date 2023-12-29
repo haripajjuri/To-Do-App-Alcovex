@@ -22,12 +22,12 @@ export default function TaskCard({name,status,start_date,end_date,task_id}){
                 <div className="flex gap-2.5 pb-3 pt-2">
                     <div className="flex flex-col gap-1">
                         <p className="text-xs text-gray-400 pl-1">Start Date</p>
-                        <p className="bg-blue-100 text-blue-700 text-xs  py-1.5 px-2.5 rounded-md">{moment(start_date).format('DD/MM/YYYY')}</p>
+                        <p className={`bg-${status}-primary text-${status}-textPrimary text-xs  py-1.5 px-2.5 rounded-md`}>{moment(start_date).format('DD/MM/YYYY')}</p>
                     </div>
 
                     <div className="flex flex-col gap-1">
                         <p className="text-xs text-gray-400 pl-1">Deadline</p>
-                        <p className="bg-blue-100 text-blue-700 text-xs font-normal py-1.5 px-2.5 rounded-md">{moment(end_date).format('DD/MM/YYYY')}</p>
+                        <p className={`bg-${status}-primary text-${status}-textPrimary text-xs font-normal py-1.5 px-2.5 rounded-md`}>{moment(end_date).format('DD/MM/YYYY')}</p>
                     </div>
                 </div>
 
