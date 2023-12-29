@@ -12,10 +12,10 @@ app.get('/',(req,res)=>{
 })
 
 const conn = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'root',
-    database:'todo'
+    host:'sql12.freesqldatabase.com',
+    user:'sql12673625',
+    password:'3Eexbi8WRU',
+    database:'sql12673625'
 }).promise()
 
 app.get('/tasks',async(req,res)=>{
