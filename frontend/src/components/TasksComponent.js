@@ -31,7 +31,7 @@ export default function TaskComponent({id,status}){
         <div className="">
 
             
-            <div>
+            <div className="flex flex-col gap-4 mt-3">
             
             {
                data.map(task=>(

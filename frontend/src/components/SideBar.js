@@ -47,7 +47,9 @@ export default function SideBar(){
             </div>
 
             <ReactModal isOpen={visible} className="h-screen">
+
                 <CreateProject changeState={changeState} />
+                
             </ReactModal>
 
         </div>

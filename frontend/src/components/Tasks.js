@@ -20,13 +20,13 @@ export default function Tasks(){
     
 
     return(
-        <div className="border-2 h-screen grid grid-rows-[1fr,12fr]">
+        <div className="border-2 h-screen grid grid-rows-[1fr,12fr] px-3">
 
             <div className="flex items-center text-lg font-medium pl-4">
-                <p className="font-medium">{projectName}</p>
+                <p className="font-semibold">{projectName}</p>
             </div>
 
-            <div className="grid grid-cols-[1fr,1fr,1fr,1fr] gap-1 p-1">
+            <div className="grid grid-cols-4">
 
             <TaskComponent id={id} status={'todo'}/>
 
