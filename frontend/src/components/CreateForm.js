@@ -82,7 +82,7 @@ export default function CreateForm({changeState,id,status}){
 
                     <div className="flex gap-4 justify-end mt-5">
                         <button onClick={()=>changeState(false)} className="bg-blue-400 rounded text-white px-4 py-1">cancel</button>
-                        <button form="createForm" className="bg-blue-400 rounded text-white px-5 py-1">save</button>
+                        <button form="createForm" onSubmit={postSubmit} className="bg-blue-400 rounded text-white px-5 py-1">save</button>
                     </div>
                 </form>
         </div>

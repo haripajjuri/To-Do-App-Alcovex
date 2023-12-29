@@ -21,27 +21,20 @@ export default function TaskComponent(props){
                 setTasks(res.data);
             }
         )
-        console.log(props.status)
 
 
     },[props.id]);
-
-    const str = ""
 
     const data = tasks.filter(task=>{
         return task.status === props.status;
     })
     return(
-        <div className="">
-            {
-                console.log(props.status)
-            }
-            
+        <div className="">            
             <div className="flex flex-col gap-4 mt-3">
             
             {
                data.map(task=>(
-                <TaskCard name={task.name} start_date={task.start_date} end_date={task.end_date} status={task.status} task_id={task.id} />
+                <TaskCard name={task.name} start_date={task.start_date} end_date={task.end_date} status={task.status} task_id={task.id} parent_id={props.id}/>
                ))
             }
 
