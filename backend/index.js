@@ -63,11 +63,19 @@ app.get('/:id',async(req,res)=>{
 })
 
 app.post('/:id/create',async(req,res)=>{
+
     const {id} = req.params;
     const {name,start_date,end_date,status} = req.body;
+
     try{
-        await conn.query('insert into tasks (`name`,`start_date`,`end_date`,`status`,`parent`) values(?,?,?,?,?)',[name,start_date,end_date,status,id]);
-        res.json("task created");
+        const [result] =await conn.query(`select * from tasks where name='${name}' and parent='${id}'`);
+        if(result.length==0){
+            await conn.query('insert into tasks (`name`,`start_date`,`end_date`,`status`,`parent`) values(?,?,?,?,?)',[name,start_date,end_date,status,id]);
+            res.json("task created");
+        }else{
+            res.json("task already exists");
+        }
+        
     }catch(err){
         return res.json(err);
     }
