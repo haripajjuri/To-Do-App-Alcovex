@@ -28,10 +28,10 @@ export default function TaskComponent({id,status}){
     })
 
     return(
-        <div className="border-2">
+        <div className="">
 
             
-            {/* <div>
+            <div>
             
             {
                data.map(task=>(
@@ -39,16 +39,16 @@ export default function TaskComponent({id,status}){
                ))
             }
 
-            </div> */}
+            </div>
 
 
             <ReactModal isOpen={visible} className="h-screen">
                 <CreateForm id={id} changeState={changeState} status={status} />
             </ReactModal>
 
-            <div className="rounded-lg flex justify-center items-center h-10 gap-2 text-lg cursor-pointer m-4 bg-blue-100" onClick={()=>setVisible(true)} >
-                <p className="text-blue-600 font-medium pb-1">+</p>
-                <button className="text-blue-600 text-sm" >Add New</button>
+            <div className="rounded-xl flex justify-center items-center h-10 gap-2 text-lg cursor-pointer m-4 bg-blue-100" onClick={()=>setVisible(true)} >
+                <p className="text-blue-600 font-medium pb-0.5">+</p>
+                <p className="text-blue-600 text-sm" >Add New</p>
             </div>
             
         </div>

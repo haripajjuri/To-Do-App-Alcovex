@@ -30,11 +30,11 @@ export default function Tasks(){
 
             <TaskComponent id={id} status={'todo'}/>
 
-            {/* <TaskComponent id={id} status={'inProgress'}/>
+            <TaskComponent id={id} status={'inProgress'}/>
 
             <TaskComponent id={id} status={'inReview'}/>
 
-            <TaskComponent id={id} status={'completed'}/> */}
+            <TaskComponent id={id} status={'completed'}/>
 
             </div>
 
