@@ -26,15 +26,15 @@ export default function Tasks(){
                 <p className="font-medium">{projectName}</p>
             </div>
 
-            <div className="grid grid-cols-[1fr,1fr,1fr,1fr] ">
+            <div className="grid grid-cols-[1fr,1fr,1fr,1fr] gap-1 p-1">
 
             <TaskComponent id={id} status={'todo'}/>
 
-            <TaskComponent id={id} status={'inProgress'}/>
+            {/* <TaskComponent id={id} status={'inProgress'}/>
 
             <TaskComponent id={id} status={'inReview'}/>
 
-            <TaskComponent id={id} status={'completed'}/>
+            <TaskComponent id={id} status={'completed'}/> */}
 
             </div>
 

@@ -6,8 +6,8 @@ import Tasks from './components/Tasks';
 function App() {
   
   return (
-    <div className="grid grid-cols-[1fr,4fr]">
-      
+    <div className="grid grid-cols-[2fr,9fr]">
+
       <SideBar/>
       <div>
         <Routes>
