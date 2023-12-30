@@ -6,6 +6,9 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 app.use(express.json());
 const mysql = require('mysql2');
+const path = require('path');
+
+app.use(express.static(path.join(__dirname+'/build')));
 
 app.get('/',(req,res)=>{
     res.json("hello")
