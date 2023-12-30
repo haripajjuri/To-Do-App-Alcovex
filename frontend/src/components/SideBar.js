@@ -11,7 +11,7 @@ export default function SideBar(){
     const [visible,setVisible] = useState(false);
 
     useEffect(()=>{
-        axios.get('http://localhost:3001/projects').then(res=>{
+        axios.get(`${process.env.REACT_APP_URL}/projects`).then(res=>{
             setProjects(res.data);
         }
         )

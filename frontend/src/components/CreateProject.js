@@ -19,7 +19,7 @@ export default function CreateProject({changeState}){
         }
 
         if(send.name!=""){
-            axios.post(`http://localhost:3001/createProject`,send).then(res=>{
+            axios.post(`${process.env.REACT_APP_URL}/createProject`,send).then(res=>{
                 
                 if(res.data.msg==="project created"){
                 Swal.fire(

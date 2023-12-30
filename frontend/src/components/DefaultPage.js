@@ -1,5 +1,7 @@
 export default function DefaultPage(){
     return(
-        <div>hello</div>
+        <div className="h-screen  border-2 border-red-300">
+
+        </div>
     )
 }

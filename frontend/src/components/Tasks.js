@@ -16,7 +16,7 @@ export default function Tasks(){
     const[projectName, setProjectName]= useState('');
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/projectName/'${id}'`).then(res=>{
+        axios.get(`${process.env.REACT_APP_URL}/projectName/'${id}'`).then(res=>{
             setProjectName(res.data.name);
         })
     },[id])
@@ -32,11 +32,11 @@ export default function Tasks(){
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if(result.isConfirmed){
-                axios.delete(`http://localhost:3001/${id}/delete`).then(res=>{
+                axios.delete(`${process.env.REACT_APP_URL}/${id}/delete`).then(res=>{
             if(res.data==="project deleted"){
                 Swal.fire(
-                    'Task deleted',
-                    'task deleted successfully',
+                    'project deleted',
+                    'project deleted successfully',
                     'success'
                 ).then(()=>{
                     navigate('/')

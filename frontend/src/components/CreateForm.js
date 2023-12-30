@@ -27,7 +27,7 @@ export default function CreateForm({changeState,id,status}){
         }
 
         if(send.name!="" && send.end_date!="" && send.start_date !=""){
-            axios.post(`http://localhost:3001/${id}/create`,send).then(res=>{
+            axios.post(`${process.env.REACT_APP_URL}/${id}/create`,send).then(res=>{
                 if(res.data==="task created"){
                     Swal.fire(
                         'task created',

@@ -19,7 +19,7 @@ export default function TaskComponent(props){
     useEffect(()=>{
         
 
-        axios.get(`http://localhost:3001/${props.id}`).then(
+        axios.get(`${process.env.REACT_APP_URL}/${props.id}`).then(
             res=>{
                 setTasks(res.data);
             }
