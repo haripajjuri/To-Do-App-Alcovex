@@ -34,12 +34,13 @@ export default function Tasks(){
             if(result.isConfirmed){
                 axios.delete(`${process.env.REACT_APP_URL}/${id}/delete`).then(res=>{
             if(res.data==="project deleted"){
+                navigate('/')
                 Swal.fire(
                     'project deleted',
                     'project deleted successfully',
                     'success'
                 ).then(()=>{
-                    navigate('/')
+                    window.location.reload();
                 })
             }else{
                 Swal.fire(
@@ -49,7 +50,6 @@ export default function Tasks(){
                 )
             }
         })
-        window.location.reload();
     }
     }
     )     
