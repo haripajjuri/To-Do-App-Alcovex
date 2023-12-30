@@ -27,7 +27,6 @@ export default function CreateProject({changeState}){
                     'project was successfully added',
                     "success"
                 ).then(()=>{
-                    navigate(`/${res.data.id}`)
                     window.location.reload();
                     changeState(false);
                 })
