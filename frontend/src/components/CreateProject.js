@@ -45,9 +45,7 @@ export default function CreateProject({changeState}){
                         'error'
                     ).then(()=>changeState(false));
                 }
-
-                window.location.reload();    
-            })
+            }).then(()=>Window.location.reload())
         }
    
     }

@@ -40,7 +40,7 @@ export default function Tasks(){
                     'success'
                 ).then(()=>{
                     navigate('/')
-                    })
+                })
             }else{
                 Swal.fire(
                     'Something went wrong',
@@ -48,8 +48,8 @@ export default function Tasks(){
                     'error'
                 )
             }
-            window.location.reload();
         })
+        window.location.reload();
     }
     }
     )     

@@ -34,7 +34,6 @@ export default function CreateForm({changeState,id,status}){
                         'task was successfully created',
                         "success"
                     ).then(()=>{
-                        window.location.reload();
                         changeState(false);
                     })
                     }
@@ -51,8 +50,9 @@ export default function CreateForm({changeState,id,status}){
                             'error'
                         ).then(()=>changeState(false));
                     }
-            })
+            }).then(()=>window.location.reload())
         }
+        
    
     }
 
