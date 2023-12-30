@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/To-Do-App-Alcovex-/static/css/main.e500ddaa.css",
+    "main.js": "/To-Do-App-Alcovex-/static/js/main.81e2afa2.js",
+    "static/js/787.9e9f4ffd.chunk.js": "/To-Do-App-Alcovex-/static/js/787.9e9f4ffd.chunk.js",
+    "static/media/logo.png": "/To-Do-App-Alcovex-/static/media/logo.9565d08d7dd53f098cb7.png",
+    "index.html": "/To-Do-App-Alcovex-/index.html",
+    "main.e500ddaa.css.map": "/To-Do-App-Alcovex-/static/css/main.e500ddaa.css.map",
+    "main.81e2afa2.js.map": "/To-Do-App-Alcovex-/static/js/main.81e2afa2.js.map",
+    "787.9e9f4ffd.chunk.js.map": "/To-Do-App-Alcovex-/static/js/787.9e9f4ffd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e500ddaa.css",
+    "static/js/main.81e2afa2.js"
+  ]
+}
