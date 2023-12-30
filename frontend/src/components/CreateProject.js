@@ -28,7 +28,6 @@ export default function CreateProject({changeState}){
                     "success"
                 ).then(()=>{
                     navigate('/');
-                    window.location.reload();
                     changeState(false);
                 })
                 }
@@ -46,8 +45,8 @@ export default function CreateProject({changeState}){
                         'error'
                     ).then(()=>changeState(false));
                 }
-                
-                
+
+                window.location.reload();    
             })
         }
    
