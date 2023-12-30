@@ -36,8 +36,18 @@ app.get('/projects',async(req,res)=>{
 
 app.post('/createProject',async(req,res)=>{
     const {name} = req.body;
-    const results = await conn.query(`insert into projects (name) values ('${name}')`);
-    res.json("project created")
+    try{
+        const [result] = await conn.query(`select * from projects WHERE name='${name}'`);
+        if(result.length===0){
+            await conn.query(`insert into projects (name) values ('${name}')`);
+            return res.json("project created");
+        }
+        return res.json("project already exists");
+    }
+    catch(err){
+        res.json("error occured while creating project");
+    }
+   
 })
 
 app.get('/projectName/:id',async(req,res)=>{
@@ -47,6 +57,17 @@ app.get('/projectName/:id',async(req,res)=>{
         return res.json(parent[0]);
     }catch(err){
         res.json(err);
+    }
+})
+
+app.delete('/:id/delete',async(req,res)=>{
+    const {id} = req.params;
+    try{
+        await conn.query(`delete from projects WHERE id='${id}'`);
+        res.json("project deleted");
+    }
+    catch(err){
+        res.json("error occured while deleting the project");
     }
 })
 
@@ -77,7 +98,7 @@ app.post('/:id/create',async(req,res)=>{
         }
         
     }catch(err){
-        return res.json(err);
+        return res.json("error occured while creating task");
     }
 })
 
@@ -88,7 +109,7 @@ app.put('/:id/update',async(req,res)=>{
         await conn.query(`update tasks set name='${name}',start_date='${start_date}', end_date='${end_date}', status='${status}' WHERE id=${id}`);
         res.json("task updated");
     }catch(err){
-        return res.json(err);
+        return res.json("error occured while updating");
     }
 })
 
