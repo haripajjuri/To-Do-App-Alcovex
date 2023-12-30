@@ -40,7 +40,8 @@ app.post('/createProject',async(req,res)=>{
         const [result] = await conn.query(`select * from projects WHERE name='${name}'`);
         if(result.length===0){
             await conn.query(`insert into projects (name) values ('${name}')`);
-            return res.json("project created");
+            const [result] = await conn.query(`select id from projects where name='${name}'`)
+            return res.json({"msg":"project created","id":result[0].id});
         }
         return res.json("project already exists");
     }
