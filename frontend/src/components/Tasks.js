@@ -59,7 +59,7 @@ export default function Tasks(){
         <div>
 
 
-        <div className="border-2 h-screen grid grid-rows-[1fr,12fr] ">
+        <div className=" h-screen grid grid-rows-[1fr,12fr] ">
            
             <div className="flex items-center text-lg font-medium pl-4 justify-between">
                 <p className="font-semibold">{projectName}</p>

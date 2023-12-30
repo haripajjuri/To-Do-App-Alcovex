@@ -11,6 +11,7 @@ colors.map((color)=>{
   })
 })
 
+colorSafeList.push("bg-inReview-secondary")
 
 module.exports = {
   safelist: colorSafeList,

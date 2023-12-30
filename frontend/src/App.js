@@ -2,6 +2,7 @@ import './index.css';
 import SideBar from './components/SideBar';
 import { Routes,Route } from 'react-router-dom';
 import Tasks from './components/Tasks';
+import DefaultPage from './components/DefaultPage';
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
       
 
         <Routes>
+          <Route path='/' element={<DefaultPage/>} ></Route>
           <Route path='/:id' element={<Tasks/>}></Route>
         </Routes>
       </div>

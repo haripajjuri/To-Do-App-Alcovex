@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2';
-export default function CreateProject({changeState}){
+import { useNavigate } from "react-router-dom";
 
+export default function CreateProject({changeState}){
+    const navigate = useNavigate();
     const [send,setData] = useState({
         name:'',
     })
@@ -18,17 +20,19 @@ export default function CreateProject({changeState}){
 
         if(send.name!=""){
             axios.post(`http://localhost:3001/createProject`,send).then(res=>{
-                if(res.data==="project created"){
+                
+                if(res.data.msg==="project created"){
                 Swal.fire(
                     'project created',
                     'project was successfully added',
                     "success"
                 ).then(()=>{
+                    navigate(`/${res.data.id}`)
                     window.location.reload();
                     changeState(false);
                 })
                 }
-                else if(res.data==="project already exists"){
+                else if(res.data.msg==="project already exists"){
                     Swal.fire(
                         'project already exists',
                         'please enter new name to create a project',
@@ -42,6 +46,7 @@ export default function CreateProject({changeState}){
                         'error'
                     ).then(()=>changeState(false));
                 }
+                
                 
             })
         }

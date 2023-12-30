@@ -34,8 +34,8 @@ export default function TaskComponent(props){
     return(
         <div className="">
             
-            <div>
-                {props.status}
+            <div className="mx-4 flex">
+                <p className={`bg-${props.status}-primary py-1 mt-2 mb-1 px-3 text-${props.status}-textPrimary rounded-md text-xs`}>{props.status}</p>
             </div>
 
                 
