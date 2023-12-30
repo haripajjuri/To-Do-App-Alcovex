@@ -10,12 +10,15 @@ export default function TaskComponent(props){
     const[visible,setVisible] = useState(false);
 
     const[tasks,setTasks] = useState([]);
+    
 
     function changeState(val){
         setVisible(val);
     }
 
     useEffect(()=>{
+        
+
         axios.get(`http://localhost:3001/${props.id}`).then(
             res=>{
                 setTasks(res.data);
@@ -29,9 +32,14 @@ export default function TaskComponent(props){
         return task.status === props.status;
     })
     return(
-        <div className="">            
-            <div className="flex flex-col gap-4 mt-3">
+        <div className="">
             
+            <div>
+                {props.status}
+            </div>
+
+                
+            <div className="flex flex-col gap-4 mt-3">
             {
                data.map(task=>(
                 <TaskCard name={task.name} start_date={task.start_date} end_date={task.end_date} status={task.status} task_id={task.id} parent_id={props.id}/>

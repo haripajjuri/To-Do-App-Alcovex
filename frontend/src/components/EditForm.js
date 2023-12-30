@@ -1,6 +1,7 @@
 import {  useState } from "react";
 import axios from "axios";
 import moment from "moment";
+import Swal from "sweetalert2";
 
 export default function EditForm({changeState,status,task_id,name,start_date,end_date}){
 
@@ -28,10 +29,17 @@ export default function EditForm({changeState,status,task_id,name,start_date,end
 
         if(send.name!="" && send.end_date!="" && send.start_date !=""){
             axios.put(`http://localhost:3001/${task_id}/update`,send).then(res=>{
-                //console.log(res.data);
-                window.alert(res.data);
-                window.location.reload()
-                changeState(false);
+                if(res.data==="task updated"){
+                    Swal.fire(
+                        `${res.data}`,
+                        'task updated succesfully',
+                        'success'
+                    ).then(()=>{
+                        window.location.reload()
+                        changeState(false);
+                    })
+                }
+               
             })
         }
    

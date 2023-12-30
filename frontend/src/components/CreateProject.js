@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import Swal from 'sweetalert2';
 export default function CreateProject({changeState}){
 
     const [send,setData] = useState({
@@ -18,9 +18,31 @@ export default function CreateProject({changeState}){
 
         if(send.name!=""){
             axios.post(`http://localhost:3001/createProject`,send).then(res=>{
-                window.alert(res.data);
-                window.location.reload();
-                changeState(false);
+                if(res.data==="project created"){
+                Swal.fire(
+                    'project created',
+                    'project was successfully added',
+                    "success"
+                ).then(()=>{
+                    window.location.reload();
+                    changeState(false);
+                })
+                }
+                else if(res.data==="project already exists"){
+                    Swal.fire(
+                        'project already exists',
+                        'please enter new name to create a project',
+                        'info'
+                    )
+                }
+                else{
+                    Swal.fire(
+                        'something went wrong',
+                        `${res.data}`,
+                        'error'
+                    ).then(()=>changeState(false));
+                }
+                
             })
         }
    

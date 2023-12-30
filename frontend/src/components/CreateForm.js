@@ -1,5 +1,6 @@
 import {  useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function CreateForm({changeState,id,status}){
 
@@ -27,9 +28,29 @@ export default function CreateForm({changeState,id,status}){
 
         if(send.name!="" && send.end_date!="" && send.start_date !=""){
             axios.post(`http://localhost:3001/${id}/create`,send).then(res=>{
-                window.alert(res.data);
-                window.location.reload()
-                changeState(false);
+                if(res.data==="task created"){
+                    Swal.fire(
+                        'task created',
+                        'task was successfully created',
+                        "success"
+                    ).then(()=>{
+                        window.location.reload();
+                        changeState(false);
+                    })
+                    }
+                    else if(res.data==="task already exists"){
+                        Swal.fire(
+                            'task already exists',
+                            'a task with this name already exists in this project',
+                            'info'
+                        )
+                    }else{
+                        Swal.fire(
+                            'something went wrong',
+                            `${res.data}`,
+                            'error'
+                        ).then(()=>changeState(false));
+                    }
             })
         }
    

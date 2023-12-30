@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactModal from "react-modal";
 import EditForm from './EditForm'
 
@@ -10,9 +10,10 @@ export default function TaskCard({name,status,start_date,end_date,task_id,parent
         setVisible(val);
     }
 
+
     return(
         <div >
-            
+               
             <div className="flex flex-col cursor-pointer shadow-lg rounded-lg mx-3 py-4 pl-3.5" onClick={()=>setVisible(true)}>
                 <div className="font-regular text-lg pl-1">
                     <p>{name}</p>
