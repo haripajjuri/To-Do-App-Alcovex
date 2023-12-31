@@ -4,6 +4,7 @@ import ProjectCard from "./ProjectCard";
 import ReactModal from "react-modal";
 import CreateForm from "./CreateForm";
 import CreateProject from "./CreateProject";
+import { useAsyncError } from "react-router-dom";
 
 export default function SideBar(){
     const [projects,setProjects] = useState([]);
@@ -61,9 +62,7 @@ export default function SideBar(){
             </div>
 
             <ReactModal isOpen={visible} className="h-screen">
-
                 <CreateProject changeState={changeState} />
-                
             </ReactModal>
 
         </div>

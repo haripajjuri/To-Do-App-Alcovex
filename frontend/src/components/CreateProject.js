@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
-export default function CreateProject({changeState}){
+export default function CreateProject({changeState,getData}){
     const navigate = useNavigate();
     const [send,setData] = useState({
         name:'',

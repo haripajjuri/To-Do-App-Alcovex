@@ -39,7 +39,7 @@ export default function Tasks(){
                     'project deleted',
                     'project deleted successfully',
                     'success'
-                )
+                ).then(()=>window.location.reload())
             }else{
                 Swal.fire(
                     'Something went wrong',
@@ -53,7 +53,6 @@ export default function Tasks(){
     )     
     }
     
-
     return(
         <div>
 
