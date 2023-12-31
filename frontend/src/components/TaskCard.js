@@ -10,7 +10,7 @@ export default function TaskCard({name,status,start_date,end_date,task_id,parent
         setVisible(val);
     }
 
-
+  
     return(
         <div >
                

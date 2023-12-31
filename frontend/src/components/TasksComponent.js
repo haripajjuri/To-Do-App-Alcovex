@@ -3,6 +3,7 @@ import CreateForm from "./CreateForm";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import TaskCard from "./TaskCard";
+import { useReducer } from "react";
 
 
 export default function TaskComponent(props){
@@ -16,17 +17,16 @@ export default function TaskComponent(props){
         setVisible(val);
     }
 
-    useEffect(()=>{
-        
+    //const [reducerValue,foreceUpdate] = useReducer(x => x+1,0)
 
+    useEffect(()=>{
         axios.get(`${process.env.REACT_APP_URL}/${props.id}`).then(
             res=>{
                 setTasks(res.data);
             }
         )
-
-
-    },[props.id]);
+        //foreceUpdate();
+    },[tasks]);
 
     const data = tasks.filter(task=>{
         return task.status === props.status;

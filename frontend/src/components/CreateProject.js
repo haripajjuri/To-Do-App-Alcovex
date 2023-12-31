@@ -22,13 +22,11 @@ export default function CreateProject({changeState}){
             axios.post(`${process.env.REACT_APP_URL}/createProject`,send).then(res=>{
                 
                 if(res.data.msg==="project created"){
-                navigate('/')
                 Swal.fire(
                     'project created',
                     'project was successfully added',
                     "success"
                 ).then(()=>{
-                    window.location.reload();
                     changeState(false);
                 })
                 }

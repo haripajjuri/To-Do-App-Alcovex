@@ -15,7 +15,7 @@ export default function SideBar(){
             setProjects(res.data);
         }
         )
-    },[])
+    },[projects])
 
     function changeState(val){
         setVisible(val);

@@ -50,10 +50,8 @@ export default function CreateForm({changeState,id,status}){
                             'error'
                         ).then(()=>changeState(false));
                     }
-            }).then(()=>window.location.reload())
+            })
         }
-        
-   
     }
 
     const handleChange = (e) =>{
