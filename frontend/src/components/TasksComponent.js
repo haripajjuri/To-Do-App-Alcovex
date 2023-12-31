@@ -11,22 +11,24 @@ export default function TaskComponent(props){
     const[visible,setVisible] = useState(false);
 
     const[tasks,setTasks] = useState([]);
-    
+    useEffect(()=>{
+        getTasks();
+    },[]);
 
+    
     function changeState(val){
         setVisible(val);
+        getTasks();
     }
 
-    //const [reducerValue,foreceUpdate] = useReducer(x => x+1,0)
-
-    useEffect(()=>{
+   
+    function getTasks(){
         axios.get(`${process.env.REACT_APP_URL}/${props.id}`).then(
             res=>{
                 setTasks(res.data);
             }
         )
-        //foreceUpdate();
-    },[tasks]);
+    }
 
     const data = tasks.filter(task=>{
         return task.status === props.status;

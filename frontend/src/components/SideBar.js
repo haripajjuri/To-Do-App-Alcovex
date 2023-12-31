@@ -11,14 +11,19 @@ export default function SideBar(){
     const [visible,setVisible] = useState(false);
 
     useEffect(()=>{
+        getData();
+    },[])
+
+    function getData(){
         axios.get(`${process.env.REACT_APP_URL}/projects`).then(res=>{
             setProjects(res.data);
         }
         )
-    },[projects])
+    }
 
     function changeState(val){
         setVisible(val);
+        getData();
     }
 
     return(
