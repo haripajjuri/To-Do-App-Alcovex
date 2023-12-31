@@ -4,7 +4,7 @@ import EditForm from './EditForm'
 
 import moment from "moment";
 
-export default function TaskCard({name,status,start_date,end_date,task_id,parent_id}){
+export default function TaskCard({name,status,start_date,end_date,task_id,parent_id,refun}){
     const [visible,setVisible] = useState(false);
     
     function changeState(val){
@@ -34,7 +34,7 @@ export default function TaskCard({name,status,start_date,end_date,task_id,parent
             </div>
             
             <ReactModal isOpen={visible} className="h-screen">
-                <EditForm changeState={changeState} status={status} name={name} task_id={task_id} start_date={moment(start_date).format('YYYY-MM-DD')} end_date={moment(end_date).format('YYYY-MM-DD')} parent_id={parent_id}/>
+                <EditForm changeState={changeState} status={status} name={name} task_id={task_id} start_date={moment(start_date).format('YYYY-MM-DD')} end_date={moment(end_date).format('YYYY-MM-DD')} parent_id={parent_id} refun={refun}/>
             </ReactModal>
         </div>
     )

@@ -4,7 +4,7 @@ import moment from "moment";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-export default function EditForm({changeState,status,task_id,name,start_date,end_date,parent_id}){
+export default function EditForm({changeState,status,task_id,name,start_date,end_date,refun}){
     const navigate = useNavigate();
 
     const [send,setData] = useState({
@@ -38,6 +38,7 @@ export default function EditForm({changeState,status,task_id,name,start_date,end
                         'task updated succesfully',
                         'success'
                     ).then(()=>{
+                        refun(true);
                         changeState(false);
                         //navigate(`/${parent_id}`)
                     })

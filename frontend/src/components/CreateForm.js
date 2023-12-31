@@ -2,7 +2,7 @@ import {  useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export default function CreateForm({changeState,id,status}){
+export default function CreateForm({changeState,id,status,refun}){
 
     const [send,setData] = useState({
         name:'',
@@ -34,6 +34,7 @@ export default function CreateForm({changeState,id,status}){
                         'task was successfully created',
                         "success"
                     ).then(()=>{
+                        refun(true);
                         changeState(false);
                     })
                     }
