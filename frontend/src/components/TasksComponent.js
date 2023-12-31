@@ -11,24 +11,21 @@ export default function TaskComponent(props){
     const[visible,setVisible] = useState(false);
 
     const[tasks,setTasks] = useState([]);
-    useEffect(()=>{
-        getTasks();
-    },[]);
-
     
+
     function changeState(val){
         setVisible(val);
-        getTasks();
     }
 
    
-    function getTasks(){
+    useEffect(()=>{
         axios.get(`${process.env.REACT_APP_URL}/${props.id}`).then(
             res=>{
                 setTasks(res.data);
             }
         )
-    }
+    },[props.id]);
+    
 
     const data = tasks.filter(task=>{
         return task.status === props.status;

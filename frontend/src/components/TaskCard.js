@@ -6,6 +6,7 @@ import moment from "moment";
 
 export default function TaskCard({name,status,start_date,end_date,task_id,parent_id}){
     const [visible,setVisible] = useState(false);
+    
     function changeState(val){
         setVisible(val);
     }
