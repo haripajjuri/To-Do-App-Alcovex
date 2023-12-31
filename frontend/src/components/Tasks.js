@@ -1,7 +1,6 @@
 import axios from "axios";
 import {  useEffect, useReducer, useState } from "react";
 import { useParams } from "react-router-dom";
-import ReactModal from "react-modal";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
@@ -74,11 +73,12 @@ export default function Tasks(){
     const inReviewData = [];
     const completedData = [];
 
-    tasks.filter(task=>{
+    tasks.map(task=>{
         if(task.status==='todo')todoData.push(task);
         if(task.status==='inProgress')inProgressData.push(task);
         if(task.status==='inReview')inReviewData.push(task);
         if(task.status==='completed')completedData.push(task);
+        return true;
     })
     
     return(

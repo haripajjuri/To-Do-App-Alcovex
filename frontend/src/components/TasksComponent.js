@@ -1,9 +1,7 @@
 import ReactModal from "react-modal";
 import CreateForm from "./CreateForm";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import {  useState } from "react";
 import TaskCard from "./TaskCard";
-import { useReducer } from "react";
 
 
 export default function TaskComponent({id,tasks,status,refun}){

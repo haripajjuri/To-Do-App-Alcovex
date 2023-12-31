@@ -26,7 +26,7 @@ export default function CreateForm({changeState,id,status,refun}){
             setErrors({name:'please enter name'});
         }
 
-        if(send.name!="" && send.end_date!="" && send.start_date !=""){
+        if(send.name!=="" && send.end_date!=="" && send.start_date !==""){
             axios.post(`${process.env.REACT_APP_URL}/${id}/create`,send).then(res=>{
                 if(res.data==="task created"){
                     Swal.fire(

@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import ProjectCard from "./ProjectCard";
 import ReactModal from "react-modal";
-import CreateForm from "./CreateForm";
 import CreateProject from "./CreateProject";
-import { useAsyncError } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SideBar(){
+    const navigate = useNavigate();
     const [projects,setProjects] = useState([]);
-    
     const [visible,setVisible] = useState(false);
 
     useEffect(()=>{
@@ -30,7 +29,7 @@ export default function SideBar(){
     return(
         <div className="h-screen border-2">
             <div className="flex flex-col items-center">
-            <div className="py-4 mt-2 font-bold text-lg flex items-center gap-2">
+            <div className="py-4 mt-2 font-bold text-lg flex items-center gap-2 cursor-pointer" onClick={()=>navigate('/')}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.0049 14.6196H8.40343V17.6993H2.0049V14.6196ZM11.6015 14.6196H17.9959V17.6993H11.6015V14.6196ZM2 8.46015H17.9976V11.5399H2V8.46015ZM2.0049 2.30072H11.6031V5.38044H2.0049V2.30072ZM14.8011 2.30072H18V5.38044H14.8011V2.30072Z" fill="#263FA0"/>
             </svg>

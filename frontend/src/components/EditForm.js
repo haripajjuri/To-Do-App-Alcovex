@@ -1,12 +1,8 @@
 import {  useState } from "react";
 import axios from "axios";
-import moment from "moment";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 
 export default function EditForm({changeState,status,task_id,name,start_date,end_date,refun}){
-    const navigate = useNavigate();
-
     const [send,setData] = useState({
         name:`${name}`,
         start_date:`${start_date}`,
@@ -29,7 +25,7 @@ export default function EditForm({changeState,status,task_id,name,start_date,end
             setErrors({name:'please enter name'});
         }
 
-        if(send.name!="" && send.end_date!="" && send.start_date !=""){
+        if(send.name!=="" && send.end_date!=="" && send.start_date !==""){
             axios.put(`${process.env.REACT_APP_URL}/${task_id}/update`,send).then(res=>{
                 if(res.data==="task updated"){
                     
