@@ -19,7 +19,7 @@ export default function Tasks(){
         axios.get(`${process.env.REACT_APP_URL}/projectName/'${id}'`).then(res=>{
             setProjectName(res.data.name);
         })
-    },[id])
+    },[])
 
     function deleteProject(){
         Swal.fire({
@@ -39,9 +39,7 @@ export default function Tasks(){
                     'project deleted',
                     'project deleted successfully',
                     'success'
-                ).then(()=>{
-                    window.location.reload();
-                })
+                )
             }else{
                 Swal.fire(
                     'Something went wrong',
