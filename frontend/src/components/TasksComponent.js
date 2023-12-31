@@ -24,7 +24,7 @@ export default function TaskComponent(props){
                 setTasks(res.data);
             }
         )
-    },[props.id]);
+    },[props.id,visible]);
     
 
     const data = tasks.filter(task=>{
