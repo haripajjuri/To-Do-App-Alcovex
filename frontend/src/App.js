@@ -12,8 +12,6 @@ function App() {
 
       <SideBar/>
       <div>
-      
-
         <Routes>
           <Route path='/' element={<DefaultPage/>} ></Route>
           <Route path='/:id' element={<Tasks/>}></Route>
