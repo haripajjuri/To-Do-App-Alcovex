@@ -14,11 +14,20 @@ app.get('/',(req,res)=>{
     res.json("hello")
 })
 
+// const conn = mysql.createConnection({
+//     host:'localhost',
+//     user:'root',
+//     password:'root',
+//     database:'todo'
+// }).promise()
+
+
+
 const conn = mysql.createConnection({
-    host:'sql12.freesqldatabase.com',
-    user:'sql12673625',
-    password:'3Eexbi8WRU',
-    database:'sql12673625'
+    host:'database-1.c9y8uig2qfmx.us-east-1.rds.amazonaws.com',
+    user:'admin',
+    password:'Haripajjuri1234',
+    database:'todo_hari'
 }).promise()
 
 app.get('/tasks',async(req,res)=>{
