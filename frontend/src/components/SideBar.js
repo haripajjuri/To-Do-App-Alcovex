@@ -44,7 +44,8 @@ export default function SideBar(){
                 <>
                 <div className="w-10/12 flex flex-col gap-1.45 py-3">
                     {
-                    projects.map(project=>( 
+                    projects.map(
+                        project=>( 
                         <ProjectCard {...project}/>
                     ))
                 }
